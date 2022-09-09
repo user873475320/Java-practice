@@ -1,21 +1,29 @@
 package Different_themes.Networking.Sockets;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Random;
 
 public class MyClientSocket {
     public static void main(String[] args) {
-        // TODO: Try to transfer an array using sockets
-        try(Socket s = new Socket("localhost", 8082);
-            DataOutputStream dos = new DataOutputStream(s.getOutputStream())) {
-            for (int i = 0; i < 10; i++) {
-                String tmp = "Hello, I'm Client server" + new Random().nextInt(100);
-                System.out.println(tmp);
-                dos.writeUTF(tmp);
+        try (Socket s = new Socket("localhost", 8082);
+             var dos = new DataOutputStream(s.getOutputStream()); var dis = new DataInputStream(s.getInputStream());
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+
+            String strSocket = "", strConsole = "";
+            while (!(strConsole.equals("stop"))) {
+
+                strConsole = br.readLine();
+                dos.writeUTF(strConsole);
+                dos.flush();
+
+                strSocket = dis.readUTF();
+                System.out.println("Server says: " + strSocket);
             }
-//            dos.flush();
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
