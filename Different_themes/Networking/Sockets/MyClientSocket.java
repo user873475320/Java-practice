@@ -1,10 +1,7 @@
 package Different_themes.Networking.Sockets;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.Random;
 
 public class MyClientSocket {
     public static void main(String[] args) {
