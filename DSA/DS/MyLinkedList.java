@@ -1,4 +1,4 @@
-package The_exercises.OOP_Basics;
+package DSA.DS;
 
 public class MyLinkedList<T> {
     transient private Node<T> first = null;
