@@ -9,7 +9,7 @@ public class BinarySearch {
         int l = 0, r = list.size() - 1;
 
         while (l <= r) {
-            int mid = (l + r) / 2;
+            int mid = (l + r) >>> 1;
             if (list.get(mid).compareTo(item) == 0) return mid;
             if (list.get(mid).compareTo(item) < 0) {
                 l = mid + 1;
@@ -20,27 +20,27 @@ public class BinarySearch {
         return -1;
     }
 
-    /*
-    * C++ code,  TODO: Understand how it works and write it in Java
-bool bool_bin_search(int *arr, int size, int item){
-    int l = -1, r = size;
+//    TODO: Understand how it works
+    public static boolean binSearch2(int[] arr, int item) {
+        int l = -1, r = arr.length;
+        // инвариант: a[l] < item <= a[r]
+        // считаем, что a[-1]=-INF, а a[size]=INF
+        while (l + 1 < r){
+            int mid = (l + r) >>> 1;
 
-    // считаем, что a[-1]=-INF, а a[size]=INF
-    while (l + 1 < r){
-        int mid = (l + r) / 2;
-
-        if (arr[mid] < item) l = mid;
-        else r = mid;
+            if (arr[mid] < item) l = mid;
+            else r = mid;
+        }
+        return (r < arr.length && arr[r] == item);
     }
-    return (r < size and arr[r] == item);
-}
-    *
-    * */
+
 
     public static void main(String[] args) {
         Integer[] arr = {1, 2, 3, 4, 5, 6, 7, 10, 12, 144, 155};
+        int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 10, 12, 144, 155};
         ArrayList<Integer> t = new ArrayList<>(Arrays.asList(arr));
 
         System.out.println(binSearch1(t, 144) == (arr.length - 1) - 1);
+        System.out.println(binSearch2(arr1, 6));
     }
 }
