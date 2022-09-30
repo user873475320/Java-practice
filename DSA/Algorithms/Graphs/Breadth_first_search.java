@@ -1,4 +1,4 @@
-package DSA.Algorithms;
+package DSA.Algorithms.Graphs;
 
 import java.util.*;
 import java.util.function.Predicate;
