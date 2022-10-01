@@ -1,4 +1,4 @@
-package Codewars;
+package Algorithmic_tasks;
 
 public class Isograms {
     public static boolean isIsogram(String str) {

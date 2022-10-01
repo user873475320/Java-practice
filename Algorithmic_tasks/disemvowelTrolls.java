@@ -1,4 +1,4 @@
-package Codewars;
+package Algorithmic_tasks;
 class Troll {
     public static String disemvowelMy(String str) {
         String vowels = "aoieyuAOIEYU";
