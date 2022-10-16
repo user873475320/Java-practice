@@ -42,7 +42,8 @@ public class Sorts {
 
         // Choose the pivot
         int pivot = highIndex;
-        int leftPointer = lowIndex, rightPointer = highIndex;
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
 
         // Partitioning
         while (leftPointer < rightPointer) {
@@ -73,7 +74,8 @@ public class Sorts {
     }
     private static <T extends Comparable<? super T>> void merge(T[] arr, T[] leftHalf, T[] rightHalf) {
         int i = 0, j = 0, k = 0;
-        int sizeLeft = leftHalf.length, sizeRight = rightHalf.length;
+        int sizeLeft = leftHalf.length;
+        int sizeRight = rightHalf.length;
 
         while (i < sizeLeft && j < sizeRight) {
 //            if (leftHalf[i].compareTo(rightHalf[j]) <= 0) arr[k++] = leftHalf[i++];
