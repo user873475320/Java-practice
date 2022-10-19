@@ -1,10 +1,30 @@
 package The_exercises.Recursion;
 
+class Node {
+    public int key;
+    public double data;
+    public Node leftChild;
+    public Node rightChild;
+
+    public void printNode() {
+        System.out.println("{" + key + ", " + data + "}");
+    }
+}
+
 class Tree {
     private Node root;
 
-    public double find(int key) {
+    // It takes O(logN)
+    public Node find(int key) {
+        Node current = root;
 
+        while (current.key != key) {
+            if (key < current.key) current = current.leftChild;
+            else current = current.rightChild;
+
+            if (current == null) return null;
+        }
+        return current;
     }
 
     public void insert(int id, double data) {
@@ -13,18 +33,6 @@ class Tree {
 
     public void delete(int id) {
 
-    }
-
-
-    static class Node {
-        public int key;
-        public double data;
-        public Node leftChild;
-        public Node rightChild;
-
-        public void printNode() {
-            System.out.println("{" + key + ", " + data + "}");
-        }
     }
 }
 
