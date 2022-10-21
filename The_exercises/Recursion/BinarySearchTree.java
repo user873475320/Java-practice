@@ -6,6 +6,11 @@ class Node {
     public Node leftChild;
     public Node rightChild;
 
+    public Node(int key, double data) {
+        this.key = key;
+        this.data = data;
+    }
+
     public void printNode() {
         System.out.println("{" + key + ", " + data + "}");
     }
@@ -27,8 +32,15 @@ class Tree {
         return current;
     }
 
-    public void insert(int id, double data) {
+    public void insert(int key, double data) {
+        Node current = root;
 
+        while (current.key != key) {
+            if (key < current.key) current = current.leftChild;
+            else current = current.rightChild;
+
+            if (current == null) current = new Node(key, data);
+        }
     }
 
     public void delete(int id) {
@@ -44,8 +56,8 @@ class TreeDemo {
         tree.insert(1, 2.2);
         tree.insert(4, 6.8);
 
-        double found = tree.find(4);
-        if (found == 0) {
+        Node found = tree.find(4);
+        if (found == null) {
             System.out.println("Not found");
         } else {
             System.out.println("Found ");
