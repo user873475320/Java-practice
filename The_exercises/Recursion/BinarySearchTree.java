@@ -16,7 +16,7 @@ class Node {
     }
 }
 
-class Tree {
+class BinarySearchTree {
     private Node root;
 
     // It takes O(logN)
@@ -32,6 +32,7 @@ class Tree {
         return current;
     }
 
+
     public void insert(int key, double data) {
         Node current = root;
 
@@ -46,17 +47,39 @@ class Tree {
     public void delete(int id) {
 
     }
+
+
+    private void visit(Node node) {
+        System.out.println(node.data);
+    }
+
+    private void traversInOrder(Node localRoot) {
+        if (localRoot != null) {
+            traversInOrder(localRoot.leftChild);
+
+            visit(localRoot);
+            traversInOrder(localRoot.rightChild);
+        }
+    }
+
+    private void traversPostOrder(Node localRoot) {
+
+    }
+
+    private void traversPreOrder(Node localRoot) {
+
+    }
 }
 
 class TreeDemo {
     public static void main(String[] args) {
-        Tree tree = new Tree();
+        BinarySearchTree bst = new BinarySearchTree();
 
-        tree.insert(0, 1.2);
-        tree.insert(1, 2.2);
-        tree.insert(4, 6.8);
+        bst.insert(0, 1.2);
+        bst.insert(1, 2.2);
+        bst.insert(4, 6.8);
 
-        Node found = tree.find(4);
+        BinarySearchTree.Node found = bst.find(4);
         if (found == null) {
             System.out.println("Not found");
         } else {
