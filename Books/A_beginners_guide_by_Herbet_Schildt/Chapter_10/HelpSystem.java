@@ -44,7 +44,7 @@ class HelpSystem {
 class test0 {
 
     public static void main(String[] args) {
-        HelpSystem tmp = new HelpSystem("C:\\Users\\user8\\Dropbox\\main1\\Java\\Learn_Java\\src\\A_beginners_guide_by_Herbet_Schildt\\Chapter_10\\         topics.txt");
+        HelpSystem tmp = new HelpSystem("C:\\Users\\user8\\Dropbox\\main1\\Java\\Learn_Java\\src\\Books.A_beginners_guide_by_Herbet_Schildt\\Chapter_10\\         topics.txt");
         tmp.getInfo("do");
     }
 }

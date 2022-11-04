@@ -3,7 +3,7 @@ package DSA.Algorithms.Graphs;
 import java.util.*;
 import java.util.function.Predicate;
 
-public class Breadth_first_search {
+public class BFS {
     public static <T> boolean bfs(Map<T, List<T>> graph, T startingNode, Predicate<T> testFunc) {
         LinkedList<T> queue = new LinkedList<>(graph.get(startingNode));
         LinkedList<T> searched = new LinkedList<>();

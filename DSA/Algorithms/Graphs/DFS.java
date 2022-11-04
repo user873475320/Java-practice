@@ -3,7 +3,7 @@ package DSA.Algorithms.Graphs;
 import java.util.*;
 import java.util.function.Predicate;
 
-public class Depth_first_search {
+public class DFS {
     public static <T> void visit(T vertex) {
         System.out.print(vertex.toString() + " ");
     }

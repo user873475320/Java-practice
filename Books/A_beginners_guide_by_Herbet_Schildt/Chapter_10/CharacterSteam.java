@@ -1,4 +1,4 @@
-package A_beginners_guide_by_Herbet_Schildt.Chapter_10;
+package Books.A_beginners_guide_by_Herbet_Schildt.Chapter_10;
 
 import java.io.BufferedReader;
 import java.io.IOException;

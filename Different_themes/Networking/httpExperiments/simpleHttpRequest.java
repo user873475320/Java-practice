@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class simpleHttpRequest {
+    // TODO: does it work? can i create an http request?
     public static void main(String[] args) {
         URL url = null;
         try {

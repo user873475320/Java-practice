@@ -4,25 +4,28 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MyServerSocket {
+class MyServerSockets {
     public static void main(String[] args) {
-        try (ServerSocket ss = new ServerSocket(8082); Socket s = ss.accept();
-             var dos = new DataOutputStream(s.getOutputStream()); var dis = new DataInputStream(s.getInputStream());
-             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        try (
+             ServerSocket ss = new ServerSocket(8080);
+             Socket clientSocket = ss.accept();
+             DataInputStream dis = new DataInputStream(clientSocket.getInputStream());
+             DataOutputStream dos = new DataOutputStream(clientSocket.getOutputStream());
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+        ) {
 
-            String strSocket = "", strConsole = "";
-            while (!(strConsole.equals("stop"))) {
-                strSocket = dis.readUTF();
-                System.out.println("Client says: " + strSocket);
+            String clientMessage = "", serverMessage = "";
 
-                strConsole = br.readLine();
-                dos.writeUTF(strConsole);
+            while (!clientMessage.equals("stop")) {
+                clientMessage = dis.readUTF();
+                System.out.println("clien says: " + clientMessage);
+
+                serverMessage = br.readLine();
+                dos.writeUTF(serverMessage);
                 dos.flush();
             }
-
-
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
         }
     }
 }

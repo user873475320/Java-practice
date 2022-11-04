@@ -3,26 +3,26 @@ package Different_themes.Networking.Sockets;
 import java.io.*;
 import java.net.Socket;
 
-public class MyClientSocket {
-    public static void main(String[] args) {
-        try (Socket s = new Socket("localhost", 8082);
-             var dos = new DataOutputStream(s.getOutputStream()); var dis = new DataInputStream(s.getInputStream());
-             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+class MyClientSocket {
+	public static void main(String[] args) {
+		try (
+				Socket s = new Socket("localhost", 8080);
+				var dis = new DataInputStream(s.getInputStream());
+				var dos = new DataOutputStream(s.getOutputStream());
+				var br = new BufferedReader(new InputStreamReader(System.in)))
+		{
+			String clientMessage = "", serverMessage = "";
 
-            String strSocket = "", strConsole = "";
-            while (!(strConsole.equals("stop"))) {
+			while (!clientMessage.equals("stop")) {
+				clientMessage = br.readLine();
+				dos.writeUTF(clientMessage);
+				dos.flush();
 
-                strConsole = br.readLine();
-                dos.writeUTF(strConsole);
-                dos.flush();
-
-                strSocket = dis.readUTF();
-                System.out.println("Server says: " + strSocket);
-            }
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+				serverMessage = dis.readUTF();
+				System.out.println("server says: " + serverMessage);
+			}
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+	}
 }

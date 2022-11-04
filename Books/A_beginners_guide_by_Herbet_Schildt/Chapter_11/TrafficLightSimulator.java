@@ -1,4 +1,4 @@
-package A_beginners_guide_by_Herbet_Schildt.Chapter_11;
+package Books.A_beginners_guide_by_Herbet_Schildt.Chapter_11;
 
 // A simulation of a traffic light that uses
 // an enumeration to describe the light's color.

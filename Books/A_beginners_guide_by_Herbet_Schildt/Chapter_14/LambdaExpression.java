@@ -1,4 +1,4 @@
-package A_beginners_guide_by_Herbet_Schildt.Chapter_14;
+package Books.A_beginners_guide_by_Herbet_Schildt.Chapter_14;
 
 // Use a generic functional interface.
 // A generic functional interface with two parameters

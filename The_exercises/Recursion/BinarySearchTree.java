@@ -113,9 +113,22 @@ class BinarySearchTree {
             if (current == root) {
                 root = current.leftChild;
             } else if (isLeft) {
-
+                parent.leftChild = current.leftChild;
+            } else {
+                parent.rightChild = current.leftChild;
+            }
+        } else if (current.leftChild == null) {
+            if (current == root) {
+                root = current.rightChild;
+            } else if (isLeft) {
+                parent.leftChild = current.rightChild;
+            } else {
+                parent.rightChild = current.rightChild;
             }
         }
+
+        // remove this afterwards
+        return false;
 
     }
 
@@ -189,6 +202,6 @@ class TreeDemo {
             bst.insert(r.nextInt() % 100, r.nextDouble());
         }
 
-        bst.printByAscendingKeys();
+//        bst.printByAscendingKeys();
     }
 }
