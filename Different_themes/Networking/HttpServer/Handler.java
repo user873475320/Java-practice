@@ -5,11 +5,21 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Handler extends Thread {
 	private Socket socket;
 	private String directory;
+
+	private static final Map<String, String> CONTENT_TYPES = new HashMap<>() {{
+		put("jpg", "image/jpeg");
+		put("html", "text/html");
+//		put("jpg", "image/jpeg");
+		sys
+	}};
+
 
 	public Handler(Socket socket, String directory) {
 		this.socket = socket;
