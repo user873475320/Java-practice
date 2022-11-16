@@ -17,7 +17,8 @@ public class SimpleHttpServer {
 		try (ServerSocket server = new ServerSocket(port)) {
 			while (true) {
 				Socket socket = server.accept();
-				Thread thr =
+				Thread thr = new Handler(socket, this.directory);
+				thr.start();
 			}
 		}
 		catch (IOException e) {
