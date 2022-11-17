@@ -25,4 +25,11 @@ public class SimpleHttpServer {
 			e.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args) {
+		var port = Integer.parseInt(args[0]);
+		var dir = args[1];
+
+		new SimpleHttpServer(port, dir).start();
+	}
 }
